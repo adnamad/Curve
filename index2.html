@@ -71,6 +71,14 @@
         .attr("fill","red")
 
 
+        var colors = ['#56CCF2', '#6FCF97','#F2C94C','#9B51E0','#F2994A','#EB5757','#BCEB57','#eb57bc','#4ceff2','#dfe6e9']
+
+		function random_number(maximum,minimum)
+		{
+			x =  Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+			return x;
+		}
+
 
         
         x2 = x1.transition()
@@ -81,13 +89,15 @@
         return x})
         .attr("cy", function(d) {return yScale(d.y)})
         .attr("r", 8)
-        .style("fill","blue")
-        .style("opacity","0.5")
+        .style("fill",function(d) { return colors[random_number(9,0)]})
+        .style("opacity","0.8")
+
+	
 
 
         circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("fill","green") 
           
-        var audio_file = new Audio('/Songs/'+d.name+'.mp3')
+        var audio_file = new Audio('./Songs/'+d.name+'.mp3')
         console.log(audio_file)
         audio_file.play()
         current_song = audio_file
