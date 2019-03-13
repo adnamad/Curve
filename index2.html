@@ -64,19 +64,21 @@
         svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","")
 
         var simulation = d3.forceSimulation()
-              .nodes(values);
+              
         
         simulation
-        .force("charge_force", d3.forceManyBody().strength(-0.35))
+        .force("charge_force", d3.forceManyBody().strength(-0.4))
         .force("center_force", d3.forceCenter(w / 2, h / 2))
-		.force("collide", d3.forceCollide().radius(8).strength(0.5))
+        .force("collide", d3.forceCollide().radius(4).strength(2))
+        
+        simulation.stop()
 
         var circles = svg.selectAll("circle")
         .data(values)
         .enter()
 		.append("circle")
-	//	.attr("cx",function(d,i){return xScale(d.x)})
-	//	.attr("cy",function(d,i) {return yScale(d.y)})
+		.attr("cx",function(d,i){return xScale(d.x)})
+		.attr("cy",function(d,i) {return yScale(d.y)})
 		.attr("r",function(d){return rad[random_number(0,5)]})
 		.style("fill",function(d) { return colors[random_number(9,0)]})
 		.style("stroke","black")
@@ -113,13 +115,19 @@
 			//update circle positions to reflect node updates on each tick of the simulation 
 			circles
 				.attr("cx", function(d) { return d.x; })
-				.attr("cy", function(d) { return d.y; })
+        .attr("cy", function(d) { return d.y; })
+        
+        
 		  }
 
-		  simulation.on("tick", tickActions );
+      simulation.on("tick", tickActions );
+      
+      simulation.nodes(values);
+      simulation.alpha(2).restart();
+      //simulation.start();
 
 
-        circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("fill","green") 
+        circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("fill","green").style("stroke-width","6") 
           
         var audio_file = new Audio('./Songs/'+d.name+'.mp3')
         console.log(audio_file)
