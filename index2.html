@@ -47,10 +47,12 @@
 		}
 
 		var rad =  [4,6,5,8,10,14]
+		
+		var rad1 = [2,3,4]
 
         
 
-        var h = 700
+        var h = 600
 		var w = 1600
 		
 		var div = d3.select("body").append("div")	
@@ -107,16 +109,28 @@
 */
         
         x2 = circles.transition()
-        //.delay(function(d,i){return i*20})
+        .delay(700)
         .duration(900)
         .attr("cx",function(d,i)
          {var x = xScale(d.x)
         return x})
         .attr("cy", function(d) {return yScale(d.y)})
 		//.attr("r", 8)
-		.attr("r",function(d){return rad[random_number(0,5)]})
+		.attr("r",function(d){return rad[random_number(0,2)]})
         .style("fill",function(d) { return colors[random_number(9,0)]})
-        .style("opacity","0.8")
+		.style("opacity","0.7")
+		
+		x3 = x2.transition()
+        .delay(2000)
+        .duration(900)
+        .attr("cx",function(d,i)
+         {var x = xScale(d.x)
+        return x})
+        .attr("cy", function(d) {return yScale(d.y) + random_number(-30,30)})
+		//.attr("r", 8)
+		.attr("r",function(d){return 1.5})
+        .style("fill",function(d) { return colors[random_number(9,0)]})
+        .style("opacity","0.7")
 
 		function tickActions() {
 			//update circle positions to reflect node updates on each tick of the simulation 
@@ -151,7 +165,10 @@
       })
         circles.on("mouseout", function(){d3.select(this).attr("r","8").transition().duration(700).style("fill","yellow")
       
-        current_song.pause()
+		current_song.pause()
+		div.transition()		
+                .duration(100)		
+                .style("opacity", 0);
       
       })
         //.transition()

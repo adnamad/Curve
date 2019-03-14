@@ -1,13 +1,19 @@
-body{
+html,body{
     /* background-color: #333333 */
+    position: absolute;
     padding-left: 0;
     margin: 0;
+    background-color: #333333;
+    min-width: 100%;
+    min-height: 100%
 }
 
 .graph_container{
+    position: relative;
     text-align: center;
     background-color: #333333;
     margin: 0;
+    width: 100%
 
 }
 
