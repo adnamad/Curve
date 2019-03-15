@@ -30,7 +30,7 @@
             }
           }
 
-        d3.json("./all_songs.json").then(function(data) {
+        d3.json("./songs_data_v2.json").then(function(data) {
             
         console.log(data);
         my_data = data
@@ -38,7 +38,9 @@
         values = data
 		
 		
-		var colors = ['#56CCF2', '#6FCF97','#F2C94C','#9B51E0','#F2994A','#EB5757','#BCEB57','#eb57bc','#4ceff2','#dfe6e9']
+    var colors = ['#56CCF2', '#6FCF97','#F2C94C','#9B51E0','#F2994A','#EB5757','#BCEB57','#eb57bc','#4ceff2','#dfe6e9']
+    
+    cls_mapping = {'M ': 0, 'CO': 1, 'CL': 2, 'RO': 3, 'P ': 4, 'HH': 5, 'E ': 6, 'LR': 7}
 
 		function random_number(maximum,minimum)
 		{
@@ -52,7 +54,7 @@
 
         
 
-        var h = 600
+    var h = 800
 		var w = 1600
 		
 		var div = d3.select("body").append("div")	
@@ -65,9 +67,22 @@
 
         var yScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.y}),d3.max(values, function(d){return d.y})])
-        .range([100,h-100])
+        .range([100,h-300])
 
         svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","")
+        //legends = d3.select(".graph_container").append("svg").attr("width","500").attr("height","50")
+
+        svg.selectAll("rect")
+        .data(colors)
+        .enter()
+        .append("rect")
+        .attr("class","labels")
+      .attr("x", function(d,i){return 400 + (i*80)})
+      .attr("y", "700")
+      .attr("width", "20")
+      .attr("height", "20")
+      .style("fill", function(d){return d});
+
 
         var simulation = d3.forceSimulation()
               
@@ -78,7 +93,7 @@
         .force("collide", d3.forceCollide().radius(4).strength(2))
         
         simulation.stop()
-
+ 
         var circles = svg.selectAll("circle")
         .data(values)
         .enter()
@@ -105,8 +120,8 @@
 
 
        
-
 */
+
         
         x2 = circles.transition()
         .delay(700)
@@ -126,10 +141,13 @@
         .attr("cx",function(d,i)
          {var x = xScale(d.x)
         return x})
-        .attr("cy", function(d) {return yScale(d.y) + random_number(-30,30)})
-		//.attr("r", 8)
-		.attr("r",function(d){return 1.5})
-        .style("fill",function(d) { return colors[random_number(9,0)]})
+        .attr("cy", function(d) {return yScale(d.y) + random_number(-5,5)})
+		    .attr("r", 8)
+		//.attr("r",function(d){return 1.5})
+        .style("fill",function(d) {
+          console.log(d.class)
+         return colors[cls_mapping[d.class]]
+        })
         .style("opacity","0.7")
 
 		function tickActions() {
@@ -147,6 +165,7 @@
       //simulation.alpha(2).restart();
       //simulation.start();
 
+  
 
         circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("fill","green").style("stroke-width","6") 
           
@@ -177,6 +196,8 @@
         stopmusic = function(audio_file) { }
 
       });
+
+      
         
     </script>
     
