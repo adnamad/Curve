@@ -4,18 +4,53 @@ html,body{
     padding-left: 0;
     margin: 0;
     background-color: #333333;
-    min-width: 100%;
-    min-height: 100%
-}
-
-.graph_container{
-    position: relative;
-    text-align: center;
-    background-color: #333333;
-    margin: 0;
     width: 100%
 
 }
+
+.graph_container{
+
+margin-top: 50px;
+
+}
+
+header{
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    background-color: chartreuse;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+nav ul{
+    display: flex;
+}
+
+nav ul li a {
+    padding-left: 20px;
+    margin: 0 35px;
+}
+
+
 
 div.tooltip {	
     position: absolute;			
@@ -31,11 +66,50 @@ div.tooltip {
     pointer-events: none;			
 }
 
-.labels 
-{
-   
+.legend{
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    background-color: yellow;
 }
 
-svg{
-    display: inline
+.legend ul
+{
+    padding: 0;
+    margin: 0 ;
+    display: flex;
+    justify-content: space-around;
+}
+
+.legend li
+{
+    padding: 0 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.legend-child{
+    
+
+    
+}
+.legend-rect{
+    height: 10px;
+    width: 10px;
+    background-color: aqua;
+}
+
+.legend-text{
+    padding-left: 10px;
+    float: left;
+}
+
+
+
+.container{
+    /* background-color: #333333; */
+    width: 90%;
+    margin: 0 auto;
+    z-index: -1;
+    
 }
