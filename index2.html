@@ -13,10 +13,10 @@
   <header>
     <div class="container">
     <nav>
-    <h1>SreC</h1> 
+    <h1>CURVE</h1> 
       <ul>
-        <li><a href="#">Home</a>
-        <li><a href="#">About</a>
+        <li><a href="./index2.html">Home</a>
+        <li><a href="./about.html">About</a>
         <li><a href="#">Contact</a>
     </nav>
   </div>
@@ -34,28 +34,80 @@
       <ul>
         <li class= "legend-child">
 
-          <div class="legend-rect"></div>
-          Pop
-
+            <div class="element">
+  
+                <div class="legend-rect-class"></div>
+                Classical
+              </div>
         </li>
 
         <li class= "legend-child">
 
-          <div class="legend-rect"></div>
-          <div class = "legend-text">
-          Pop
-          </div>
+            <div class="element">
+  
+                <div class="legend-rect-hip"></div>
+                HipHop  
+              </div>
 
         </li>
 
         <li class= "legend-child">
-
-          <div class="legend-rect"></div>
-          Pop
-
+            <div class="element">
+                <div class="legend-rect-pop"></div>
+                Pop
+              </div>
         </li>
+
+        <li class= "legend-child">
+            <div class="element">
+                <div class="legend-rect-elec"></div>
+                EDM
+              </div>
+        </li>
+
+        <li class= "legend-child">
+            <div class="element">
+                <div class="legend-rect-love"></div>
+                Love
+              </div>
+        </li>
+
+        <li class= "legend-child">
+            <div class="element">
+                <div class="legend-rect-country"></div>
+                Country
+              </div>
+        </li>
+
+        <li class= "legend-child">
+            <div class="element">
+                <div class="legend-rect-rock"></div>
+                Rock
+              </div>
+        </li>
+
+        <li class= "legend-child">
+            <div class="element">
+                <div class="legend-rect-metal"></div>
+                Metal
+              </div>
+        </li>
+
+      </ul> 
 
     </div>
+
+
+    <!-- <div class="test_align">
+
+        <div class="element">
+  
+        <div class="legend-rect"></div>
+        Poppy 
+       
+  
+      </div>
+      </div> -->
 
   </div>
 
@@ -216,7 +268,7 @@
 
   
 
-        circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("fill","green").style("stroke-width","6") 
+        circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("stroke-width","6") 
           
         var audio_file = new Audio('./Songs/'+d.name+'.mp3')
         console.log(audio_file)
@@ -236,7 +288,7 @@
 		current_song.pause()
 		div.transition()		
                 .duration(100)		
-                .style("opacity", 0);
+                .style("opacity", 1);
       
       })
         //.transition()
