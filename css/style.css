@@ -14,7 +14,10 @@ html,body{
 
 .graph_container{
 
-margin-top: 50px;
+margin-top: 5%;
+align-items: center;
+  display: flex;
+  justify-content: center;
 
 }
 
@@ -80,7 +83,7 @@ div.tooltip {
 }
 
 .legend{
-    margin-top: 30px;
+    margin-top: 7%;
     height: 40px;
     width: 100%;
     
