@@ -127,10 +127,49 @@
           </p>
           
           
-          Notes and FAQs
+          <h2>Notes and FAQs </h2>
+
+          <p>
+
+            <ol>
+
+            
+          <li>This post was inspired in part by Sander Dieleman’s excellent work <LINK> at Spotify. He ran a 1D CNN model on spectrograms to predict the latent vectors generated from a collaborative filtering model,
+             demonstrating an effective way of combining it with content based methods. I tried to recreate the project by training my own model but the results were not that impressive. 
+             One possible reason may be that Sander’s latent vectors were obtained by using Spotify’s own vector_exp algorithm trained on an unparalleled, humongous amount of rating data on millions of songs while I trained my own collaborative filtering model from scratch on the ___ dataset. The difference in the quality of the vectors which formed the target of the model hence could have been a deciding factor.
+            </li>
+         
+          <li>   Emboldened by how well the generative model (VAE) was doing we tried another method where we utilised Info-GANs, however again rather confusingly, the results were not that great. 
+          </li>
+          </ol>
+
+          </p>
           
+          <div class = "disqus_cnt">
+          <div id="disqus_thread"></div>
+            <script>
+
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://adnanahmad.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                        
+                      
           
-          
+        </div>
         </div>
         
 </body>
