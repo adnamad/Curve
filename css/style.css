@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900');
 
 html,body{
     /* background-color: #333333 */
@@ -218,8 +218,9 @@ div.tooltip {
 }
 
 .about-cnt p{
-    line-height: 1.5em;
+    line-height: 1.625em;
     font-size: 1.1em;
+    font-weight: 300;
 }
 
 .about-cnt img{
@@ -232,6 +233,10 @@ div.tooltip {
     margin-bottom: 50px;
     color: white;
     text-align: center;
+}
+
+.about-cnt h2{
+  margin: 30px 0
 }
 
 .disqus_cnt{

@@ -31,7 +31,8 @@
           </p>
           <p>
           The heart of the problem lies in the fact that most major recommendation systems are based on Collaborative filtering which is inherently powered by the relationship between your listening/rating history and that of other users on the platform. This leads to the Cold Start problem where it becomes tough for newer artists to get their work featured to their intended audience while for new users the system may struggle to list suggestions given the lack of history.
-           
+          </p>
+          <p>
           One way to overcome this issue is by using Content Based Recommendations where we extract features directly from the source (in our case music) and generate suggestions based on them. In this article I detail my approach to this problem by developing an unsupervised CVAE model to automatically extract contextual features which model the intrinsic property of each song.
           </p>
 
