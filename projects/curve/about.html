@@ -5,7 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>About</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138761648-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-138761648-1');
+    </script>
+
+
 </head>
 <body>
         <header>
@@ -13,9 +25,9 @@
                 <nav>
                 <h1>CURVE</h1> 
                   <ul>
-                    <li><a href="./index2.html">Home</a>
+                    <li><a href="../curve.html">Home</a>
                     <li><a href="./about.html">About</a>
-                    <li><a href="#">Contact</a>
+                    <li><a href="../../index.html">Contact</a>
                 </nav>
               </div>
               </header>
@@ -54,8 +66,8 @@
           
           <figure>
           <div class = "img-rows">
-          <div class="img-cols">  <img src="./images/spotify.png" class="img-spot">  </div>
-          <div class="img-cols"> <img src = "./images/spotapp.png" class='img-app'> </div>
+          <div class="img-cols">  <img src="../../images/spotify.png" class="img-spot">  </div>
+          <div class="img-cols"> <img src = "../../images/spotapp.png" class='img-app'> </div>
 
           </div>
           <figcaption><p>The Dataset was created from Spotify Playlists like the ones above</p></figcaption>
@@ -117,7 +129,7 @@
 				<p>
 					All the songs above belong to the same rock playlist from Spotify but you can see how differently they are arranged on the latent vector space. Temporary love and American Dreamer are on the left closer to the pop cluster while Show me how to live and The Resistance are on the right towards the metallic end. An auditory analysis is sufficient to understand that the model is correct in modelling such behavior. A simple genre based classifier may have incorrectly recommended these songs together but  as the VAE model is detecting low level patterns directly from the audio wave without any bias it is able to successfully detect such nuances.
 					<figure>
-							<img class="exmp" src="./images/example.png">
+							<img class="exmp" src="../../images/example.png">
 							<figcaption> <p>Different flavors of Rock </p> </figcaption>
 						</figure>
 					
@@ -125,7 +137,7 @@
 					  
 					<div class = "pop-side-audio">
 					  <audio controls>
-						  <source src="./Writeup/Example_Songs/RO~Temporary Love-The Brinks.mp3" type="audio/ogg">
+						  <source src="../../Writeup/Example_Songs/RO~Temporary Love-The Brinks.mp3" type="audio/ogg">
 						 
 						Your browser does not support the audio element.
 						</audio>
@@ -134,7 +146,7 @@
 						</div>
 			
 						<audio controls>
-							<source src="./Writeup/Example_Songs/RO~American Dreamer-Kyd the Band.mp3" type="audio/mpeg">
+							<source src="../../Writeup/Example_Songs/RO~American Dreamer-Kyd the Band.mp3" type="audio/mpeg">
 						   
 						  Your browser does not support the audio element.
 						  </audio>
@@ -148,7 +160,7 @@
 					<div class ="metal-side-audio">
 			
 						  <audio controls>
-							  <source src="./Writeup/Example_Songs/RO~Show Me How to Live-Audioslave.mp3" type="audio/mpeg">
+							  <source src="../../Writeup/Example_Songs/RO~Show Me How to Live-Audioslave.mp3" type="audio/mpeg">
 							 
 							Your browser does not support the audio element.
 							</audio>
@@ -156,7 +168,7 @@
 									<p>Show Me How to Live - Audioslave</p>
 								</div>
 							<audio controls>
-								<source src="./Writeup/Example_Songs/RO~The Resistance-Skillet.mp3" type="audio/mpeg">
+								<source src="../../Writeup/Example_Songs/RO~The Resistance-Skillet.mp3" type="audio/mpeg">
 							   
 							  Your browser does not support the audio element.
 							  </audio>

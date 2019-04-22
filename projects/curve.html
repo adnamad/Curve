@@ -6,18 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Curve</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138761648-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-      gtag('config', 'UA-138761648-1');
+    gtag('config', 'UA-138761648-1');
     </script>
-
 
 </head>
 <body>
@@ -27,9 +26,9 @@
     <nav>
     <h1>CURVE</h1> 
       <ul>
-        <li><a href="./index2.html">Home</a>
-        <li><a href="./about.html">About</a>
-        <li><a href="./contact.html">Contact</a>
+        <li><a href="./curve.html">Home</a>
+        <li><a href="./curve/about.html">About</a>
+        <li><a href="../index.html">Contact</a>
     </nav>
   </div>
   </header>
@@ -38,7 +37,7 @@
     
       <button class="trigger">
             
-          <img src="./images/help.svg">
+          <img src="../images/help.svg">
       </button>
           <div class="wrap-model">
           <div class="show-modal-content">
@@ -134,12 +133,43 @@
   </div>
 
     <script type="text/javascript">
-        // Your beautiful D3 code will go here
+       
 
 
         //var container_w = document.getElementById("g_cont").style.width;
         //console.log(container_w);
         console.log("Adnan");
+
+        function responsivefy(svg) {
+            // get container + svg aspect ratio
+            var container = d3.select(svg.node().parentNode),
+                width = parseInt(svg.style("width")),
+                height = parseInt(svg.style("height")),
+                aspect = width / height;
+        
+            // add viewBox and preserveAspectRatio properties,
+            // and call resize so that svg resizes on inital page load
+            svg.attr("viewBox", "0 0 " + width + " " + height)
+                .attr("perserveAspectRatio", "xMinYMid")
+                .call(resize);
+        
+            // to register multiple listeners for same event type, 
+            // you need to add namespace, i.e., 'click.foo'
+            // necessary if you call invoke this function for multiple svgs
+            // api docs: https://github.com/mbostock/d3/wiki/Selections#on
+            d3.select(window).on("resize." + container.attr("id"), resize);
+        
+            // get width of container and resize svg to fit it
+            function resize() {
+                var targetWidth = parseInt(container.style("width"));
+                svg.attr("width", targetWidth);
+                svg.attr("height", Math.round(targetWidth / aspect));
+            }
+        }
+
+
+
+
         var current_song = null
         var my_data = null
 
@@ -152,7 +182,7 @@
             }
           }
 
-        d3.json("./songs_data_v2.json").then(function(data) {
+        d3.json("../songs_data_v2.json").then(function(data) {
             
         console.log(data);
         my_data = data
@@ -176,7 +206,7 @@
 
         
 
-    var h = 500
+        var h = 500
 		var w = 1350
 		
 		var div = d3.select("body").append("div")	
@@ -185,13 +215,13 @@
 
         var xScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.x}),d3.max(values,function(d) {return d.x})])
-        .range([10,w-20])
+        .range([100,w-20])
 
         var yScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.y}),d3.max(values, function(d){return d.y})])
         .range([100,h-50])
 
-        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","")
+        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","").call(responsivefy);
         //legends = d3.select(".graph_container").append("svg").attr("width","500").attr("height","50")
 
         /* COLOR LEGEND
@@ -292,7 +322,7 @@ I am a modal!
 
         circles.on("mouseover", function(d){d3.select(this).attr("r","20").style("stroke-width","6") 
           
-        var audio_file = new Audio('./Songs/'+d.name+'.mp3')
+        var audio_file = new Audio('../Songs/'+d.name+'.mp3')
         console.log(audio_file)
         audio_file.play()
 		current_song = audio_file
@@ -323,6 +353,18 @@ I am a modal!
       
         
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
+    <script>
+            $('.close-button').on('click', function(){
+                $(this).closest(".show-modal-content").remove();
+            });
+            
+            var modal = $('<div class="wrap-model"> <div class="show-modal-content"> <span class="close-button">×</span> <h1>Hello</h1> </div> </div>');
+            $(".trigger").click(function () {
+                $(".container").append(modal);
+              });
+    </script>
     
 </body>
 
@@ -330,8 +372,31 @@ I am a modal!
     var modal = document.querySelector(".show-modal-content");
     var trigger = document.querySelector(".trigger");
     var closeButton = document.querySelector(".close-button");
-    
+    /*
     function toggleModal() {
+        if(modal.style.opacity==1)
+        {
+            modal.style.opacity = 0;
+        }
+        else{
+            modal.style.opacity = 1; 
+        }
+       
+    }
+    
+
+    function openModal() {
+        if(modal.style.opacity==1)
+        {
+            modal.style.opacity = 0;
+        }
+        else{
+            modal.style.opacity = 1; 
+        }
+       
+    }
+
+    function closeModal() {
         if(modal.style.opacity==1)
         {
             modal.style.opacity = 0;
@@ -349,7 +414,7 @@ I am a modal!
     trigger.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);
-    
+    */
         
 </script>
 

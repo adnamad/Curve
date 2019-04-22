@@ -22,11 +22,12 @@ align-items: center;
 }
 
 header{
-    position: fixed;
+    margin:0;
+    /* position: fixed; */
     height: 60px;
     width: 100%;
     background-color:  #333333;
-    z-index: 1;
+    z-index: 100;
     display: flex;
     align-items: center;
     margin-top:10px;
@@ -40,9 +41,11 @@ nav h1{
 }
 
 nav{
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color:  #333333
     
 }
 
@@ -203,7 +206,7 @@ div.tooltip {
     /* background-color: #333333; */
     width: 90%;
     margin: 0 auto;
-    z-index: -1;
+    z-index: 100;
     
 }
 
@@ -326,4 +329,71 @@ figcaption{
     font-weight: 500;
     color: #CDC6BF;
     margin-bottom: 50px;
+}
+
+
+
+.wrap-modal{
+    position: relative;
+}
+
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-modal-content {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+
+    opacity: 1;
+    visibility: visible;
+
+}
+
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.trigger{
+    float: right;
+    margin-top:20px;
+    background-color: transparent;
+    border: transparent;
+    height: 50px;
+    width: 100px;
+}
+
+.trigger img{
+   
+    -webkit-filter: invert(1);
+   filter: invert(1);
+   height: 35px;
+   width: 35px;
+  
 }
