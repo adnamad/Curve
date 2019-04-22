@@ -235,7 +235,7 @@
         .domain([d3.min(values,function(d){return d.y}),d3.max(values, function(d){return d.y})])
         .range([50,h-50])
 
-        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","").style("z-index",1000).call(responsivefy);
+        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","").call(responsivefy);
         //legends = d3.select(".graph_container").append("svg").attr("width","500").attr("height","50")
 
         /* COLOR LEGEND
