@@ -18,6 +18,8 @@
     gtag('config', 'UA-138761648-1');
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
+
 </head>
 <body>
 
@@ -45,11 +47,14 @@
               <h1>Hello</h1>
           </div>
           </div>
+  </div>
 
     <div class="graph_container" id ="g_cont">
             <!-- World <br> 
             Hello <br> -->
     </div>
+
+    <div class="container">
 
     <div class="legend">
       <ul>
@@ -184,7 +189,7 @@
 
         d3.json("../songs_data_v2.json").then(function(data) {
             
-        console.log(data);
+        //console.log(data);
         my_data = data
 
         values = data
@@ -204,24 +209,33 @@
 		
 		var rad1 = [2,3,4]
 
-        
+        var hh = screen.height;
+        var ww = screen.width;
+        console.log("Adnan");
+        console.log(hh);
+        console.log(ww);
 
-        var h = 500
-		var w = 1350
-		
+        /*
+        var h = 400
+        var w = 1300
+        */
+        
+        var h = hh*0.40;
+        var w = ww*0.90;
+
 		var div = d3.select("body").append("div")	
     	.attr("class", "tooltip")				
     	.style("opacity", 0);
 
         var xScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.x}),d3.max(values,function(d) {return d.x})])
-        .range([100,w-20])
+        .range([50,w-20])
 
         var yScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.y}),d3.max(values, function(d){return d.y})])
-        .range([100,h-50])
+        .range([50,h-50])
 
-        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","").call(responsivefy);
+        svg = d3.select(".graph_container").append("svg").attr("width",w).attr("height",h).attr("style","").style("z-index",1000).call(responsivefy);
         //legends = d3.select(".graph_container").append("svg").attr("width","500").attr("height","50")
 
         /* COLOR LEGEND
@@ -354,69 +368,18 @@ I am a modal!
         
     </script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
+    
     <script>
             $('.close-button').on('click', function(){
-                $(this).closest(".show-modal-content").remove();
+                $(".show-modal-content").hide();
             });
             
-            var modal = $('<div class="wrap-model"> <div class="show-modal-content"> <span class="close-button">×</span> <h1>Hello</h1> </div> </div>');
+            var modal = $(' <div class="show-modal-content"> <span class="close-button">×</span> <h1>Hello</h1> </div>');
             $(".trigger").click(function () {
-                $(".container").append(modal);
+                $(".show-modal-content").show();
               });
     </script>
     
 </body>
-
-<script>
-    var modal = document.querySelector(".show-modal-content");
-    var trigger = document.querySelector(".trigger");
-    var closeButton = document.querySelector(".close-button");
-    /*
-    function toggleModal() {
-        if(modal.style.opacity==1)
-        {
-            modal.style.opacity = 0;
-        }
-        else{
-            modal.style.opacity = 1; 
-        }
-       
-    }
-    
-
-    function openModal() {
-        if(modal.style.opacity==1)
-        {
-            modal.style.opacity = 0;
-        }
-        else{
-            modal.style.opacity = 1; 
-        }
-       
-    }
-
-    function closeModal() {
-        if(modal.style.opacity==1)
-        {
-            modal.style.opacity = 0;
-        }
-        else{
-            modal.style.opacity = 1; 
-        }
-       
-    }
-    
-    function windowOnClick(event) {
-       
-    }
-    
-    trigger.addEventListener("click", toggleModal);
-    closeButton.addEventListener("click", toggleModal);
-    window.addEventListener("click", windowOnClick);
-    */
-        
-</script>
-
 
 </html>
