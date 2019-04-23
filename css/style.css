@@ -77,6 +77,15 @@ nav ul li a {
 
 
 
+
+
+
+
+
+
+
+
+
 div.tooltip {	
     position: absolute;			
     text-align: center;	
@@ -401,4 +410,17 @@ figcaption{
    height: 35px;
    width: 35px;
   
+}
+
+nav img{
+   
+    -webkit-filter: invert(1);
+   filter: invert(1);
+   height: 35px;
+   width: 35px;
+  
+}
+
+nav img{
+    display: none;
 }
