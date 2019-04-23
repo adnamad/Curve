@@ -12,12 +12,17 @@ html,body{
 
 }
 
+.g-cont{
+    
+}
+
 .graph_container{
 
 margin-top: 5%;
-align-items: center;
+/* align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: center; */
+  width:90%;
 
 }
 
