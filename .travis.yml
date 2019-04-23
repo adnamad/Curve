@@ -1,0 +1,15 @@
+branches:
+  only:
+  - master
+language: python
+python: 3.5
+install: pip install awscli
+script:
+- aws s3 sync --exclude '.git/*' --exclude '.travis.yml' --exclude
+  '.gitignore' --acl public-read --delete . s3://www.adnanahmad.co
+- aws configure set preview.cloudfront true
+- aws cloudfront create-invalidation --distribution-id E13WBY84HKQF49 --paths '/*'
+env:
+  global:
+  - secure: zcELdeLF9y9GpMNV0swIwEHXv6B2kljzAzrRTMFr1xVZiVP//1BP0t+0FstN3ywTobZ8hHWONdRHaHQCkovCY2hwv7mr8HQacO93hv7nucKJEgdTlOzsCSEZa8tDyrgEjDm8VqS7gDQNPwEnUnQAf/u6UdMxnAogVsINw4UsaEk55qDXMxpLM8LTSF0oZ6OUVgsY5gufYAwpw38WpsIGqmCXRHXQwofVWerVvbqUax8NZ75AG/BpkQd61IhuY61aSBqno0tdmEtUxH9XKbWkulsikHAHC9f/b+CR8BB6g1y2Xd2N2zwYqqeYHakBtT0VvPkWRFRRmREZWqgbywfGV8StoW/LApoe3cY7o0d7ZiKr9kuW0d9YDR0hAiTv1Zxs/dTWkK33nMNb2jTscgzBFqpTPSwFomm+R13s09fsfqmbDeRFktDfy5oGMTLZ/1+kRTqGW4HAFOwaW0b4Jvwx3uW1mLOnSFeXqAKhulxoTMFzhILqbMKOfjWLbmCfUncEijwKKRZC3KrTneoHvTbE+CzHvKEMxWF7KhzJvo3YzNFqS8jUPxpmNhISmw17HCIBEWCK4/HMghdkusRXdfOYd3t81u9KCk1erYunzoZ14OfoAu4UHsde9A1tIm8LcLrW42iRhW+6BiPpyn7oPEC+9oD8egSUIpyvsGeQAYhA5H0=
+  - secure: r2jhHhPLIODPTV2V5D7Rudq6djL5AIyGh3bwPwljZLy7u9Fr6LtPv9i9Xpz56BI+ZCD+vhgIWmZvZWqQppp+r1s2RehB3nifvqbMuvBj0GWFD+Ypw3srt6g10uIxUdahyzu5UmX3OZ4KqpxY5aS9dMDrr47B/PSRP33Py90rnLfwlV1DrcdHFFWX1QKHTdxJ8RMN90I0HlzNopEx+LznPGXQ3it0devF+wmjILW0p+aY+FqEIwu37QVeMFKX6XrXMRRIyG7yiH7t/m5qNXWO1Qf6/lbCe4hyAfsVHKzFWudvmbYkYNvgQ2Dr4HOALjlMp1nCOQfR9/zdPQgbpwIogroxPULaaHw9vanKdLSOtHAThPb/C89cHXmTsXr86AeCfpnH5uoZ0X3XhjyVd6g6TOVySF+7x6uoTrL74s3+YgbP+MhwO0HwfSlLwVnV7AKRVdGmadjG2DArR1nGfdN/D78Syz45jN3AMsLewkR9n9UHb3GdIj20YGShiNUzWafF/AkSOY4YNX2qpJlmFSqDfy84BR97fHPXTSpj1sWzQfyeL2e+REaXuj3IRqdPR3r2m2dHd7JAA82hQRlOBtinXtcuRfj73gEdvFKhSVeLIxtCwyh5NQqTX4kaxHeQIMh4ZbdmFkbzFI5PbKZbsNuHLHgg8AU58/et+rNPLjRQL6s=
