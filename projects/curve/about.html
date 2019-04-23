@@ -15,22 +15,48 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-138761648-1');
+
+    
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
 
 
 </head>
 <body>
-        <header>
-                <div class="container">
-                <nav>
-                <h1>CURVE</h1> 
-                  <ul>
-                    <li><a href="../curve.html">Home</a>
-                    <li><a href="./about.html">About</a>
-                    <li><a href="../../index.html">Contact</a>
-                </nav>
-              </div>
-              </header>
+
+
+    <header>
+        <div class="container">
+          <div class="nav-bar">
+      <nav>
+          <a href="../curve.html"> <h1>CURVE</h1> </a>
+        <ul>
+          <li><a href="../curve.html">Home</a>
+          <li><a href="./about.html">About</a>
+          <li><a href="../../index.html">Contact</a>
+            <li> 
+                <button class="menu">
+                  <img src="../../images/menu.svg">
+                </button>
+              </li>
+          </ul>
+      </nav>
+    </div>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="../curve.html">Home</a>
+            <li><a href="./about.html">About</a>
+            <li><a href="../../index.html">Contact</a>
+          </ul>
+        </div>
+
+  </div>
+    </header>
+
+
+
         <div class="about-cnt">
           
           <h1>Content based Unsupervised music Recommendation using convolutional Variational autoEncoder </h1>
@@ -238,6 +264,16 @@
           
         </div>
         </div>
-        
+        <script>
+            $('.menu').on('click', function(){
+              var dis = $(".mobile-menu").css("display");
+              if(dis == "none"){
+                $(".mobile-menu").css("display","block");
+              }
+              else{
+                $(".mobile-menu").css("display","none");
+              }
+          });
+        </script>
 </body>
 </html>

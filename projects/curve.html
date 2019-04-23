@@ -28,14 +28,28 @@
       <div class="container">
         <div class="nav-bar">
     <nav>
-    <h1>CURVE</h1> 
+        <a href="./curve.html"> <h1>CURVE</h1> </a>
       <ul>
         <li><a href="./curve.html">Home</a>
         <li><a href="./curve/about.html">About</a>
         <li><a href="../index.html">Contact</a>
-        <img src="../images/menu.svg">
+        <li> 
+          <button class="menu">
+            <img src="../images/menu.svg">
+          </button>
+        </li>
+        </ul>
     </nav>
   </div>
+
+  <div class="mobile-menu">
+  <ul>
+      <li><a href="./curve.html">Home</a>
+      <li><a href="./curve/about.html">About</a>
+      <li><a href="../index.html">Contact</a>
+    </ul>
+  </div>
+
 </div>
   </header>
 
@@ -255,16 +269,16 @@
 
       else{
 
-        var h = 350;
-        var w = 1250;
+        var h = 550;
+        var w = 1150;
 
         var xScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.x}),d3.max(values,function(d) {return d.x})])
-        .range([50,1800])
+        .range([50,1100])
 
         var yScale = d3.scaleLinear()
         .domain([d3.min(values,function(d){return d.y}),d3.max(values, function(d){return d.y})])
-        .range([50,600])
+        .range([50,500])
 
       }
 
@@ -411,6 +425,19 @@ I am a modal!
             $(".trigger").click(function () {
                 $(".show-modal-content").show();
               });
+
+
+              $('.menu').on('click', function(){
+                var dis = $(".mobile-menu").css("display");
+                if(dis == "none"){
+                  $(".mobile-menu").css("display","block");
+                }
+                else{
+                  $(".mobile-menu").css("display","none");
+                }
+            });
+
+
     </script>
     
 </body>
