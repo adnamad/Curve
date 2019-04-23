@@ -25,10 +25,10 @@ margin-top: 5%;
   width:90%;
 
 }
-
+/* 
 header{
     margin:0;
-    /* position: fixed; */
+   
     height: 60px;
     width: 100%;
     background-color:  #333333;
@@ -36,6 +36,10 @@ header{
     display: flex;
     align-items: center;
     margin-top:10px;
+    
+} */
+
+.nav-bar{
     
 }
 
@@ -98,12 +102,26 @@ div.tooltip {
     
 }
 
+
 .legend ul
 {
     padding: 0;
     margin: 0 ;
     display: flex;
     justify-content: space-around;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .legend ul
+    {
+        padding: 0;
+        margin: 0 ;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
 }
 
 .legend li
