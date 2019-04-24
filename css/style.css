@@ -396,12 +396,24 @@ figcaption{
     transform: translate(-50%, -20%);
     background-color: white;
     padding: 1rem 1.5rem;
-    width: 24rem;
+    width: 27rem;
     border-radius: 0.5rem;
 
     opacity: 1;
     visibility: visible;
 
+}
+
+.headphone-advice{
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left:-20px;
+}
+
+.show-modal-content h4{
+    margin-left: 10px;
 }
 
 
@@ -412,7 +424,8 @@ figcaption{
     text-align: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    background-color: lightgray;
+    background-color: transparent;
+    
 }
 .close-button:hover {
     background-color: darkgray;
