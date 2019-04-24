@@ -74,11 +74,18 @@ a{
     list-style-type: none;
 }
 
+.curve-heading a{
+    color: rgb(2, 245, 99);
+}
+
 nav ul{
+    
     display: flex;
+   margin-left:auto;
 }
 
 nav ul li a {
+    
     padding-left: 20px;
     margin: 0 35px;
 }
@@ -504,12 +511,31 @@ nav .menu{
     display: flex;
     width:100%;
     justify-content: space-evenly;
+    text-align: center;
 
 }
 
-.my-img{
-    background-color: yellow;
+@media only screen and (max-width: 900px) {
+
+    .about-me{
+        margin-top: 2%;
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;    
     
+    }
+
+}
+
+
+
+.my-img{
+    /* background-color: yellow; */
+    
+
 
 }
 
@@ -518,28 +544,57 @@ nav .menu{
     width:50%;
 }
 
-.me img{
-    margin-top: 10%;
+
+.me {
+    margin-top: 30%;
+    width: 300px;
+    height: 300px;
+    display: block;
+    position: relative;
+    overflow: hidden;
     border-radius: 50%;
-    height: 400px;
-    width: 400px;
-    margin-top: 50%;
-    display: none;
 }
+
+
+.me img {
+  display: inline-block;
+  margin: 0 auto;
+  /* margin-left:  ; */
+  
+  height: 125%;
+  width: auto;
+}
+  
+  
+
+
 
 .my-desc h1{
     font-size: 3.5rem;
     /* margin:0; */
     text-align: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
 .my-desc{
+   
     font-weight: 500;
     font-size: 1.3rem;
     line-height: 2rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .my-desc{
+        
+        width: 90%;
+        font-weight: 500;
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+
+}
+
 
 .my-desc a{
     font-weight: 500;

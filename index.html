@@ -28,10 +28,10 @@
                 <div class="container">
                   <div class="nav-bar">
               <nav>
-                  <a href="./projects/curve.html"> <h1>CURVE</h1> </a>
+                  <!-- <a href="./projects/curve.html"> <h1>CURVE</h1> </a> -->
                 <ul>
-                  <li><a href="./projects/curve.html">Home</a>
-                  <li><a href="./projects/curve/about.html">About</a>
+                  <li class = "curve-heading"><a href="./projects/curve.html">CURVE</a>
+                  <!-- <li><a href="./projects/curve/about.html">About</a> -->
                   <li><a href="./index.html">Contact</a>
                   <li> 
                     <button class="menu">
@@ -59,22 +59,22 @@
 
                 <div class="my-img">
                 <div class="me">
-                <img src="./images/spotapp.png">
+                <img src="./images/me.jpg">
                 </div>
                 <div class="social-icons">
-                    <img src ="./images/gmail.svg">
-                    <img src = "./images/linkedin.svg">
-                    <img src ="./images/github.svg">
-                    <img src="./images/instagram.svg">
+                    <a href="mailto:adnanahmad@gmail.com"><img src ="./images/gmail.svg"> </a>
+                    <a href="https://www.linkedin.com/in/adnan-ahmad-427379125/"><img src = "./images/linkedin.svg"></a>
+                    <a href="https://github.com/Cranxter"><img src ="./images/github.svg"></a>
+                    <a href="https://www.instagram.com/cranxter/?hl=en"><img src="./images/instagram.svg"></a>
                  </div>   
                  </div>
                 
                  <div class='my-desc'>
                      <h1>Adnan Ahmad</h1>
                      <p>
-                        I currently work as Jr Data Scientist at DeepTek Inc and a student researcher at Symbiosis Center for Medical Image Analysis.</p>
+                        I currently work as a Jr Data Scientist at DeepTek Inc and a student researcher at Symbiosis Center for Medical Image Analysis.</p>
                     <p>
-                        It is said that always let your problem define your solutions, so thats how my interest in Deep Learning first materialised  back in 2015
+                        It is said that always let your problem define your solutions, so that is how my interest in Deep Learning first materialised  back in 2015
                         as I searched through ways to enable better content discovery in my two most used applications - YouTube (music) and Guardian (news).
 
                     </p> 
@@ -99,7 +99,29 @@
 
         </div>
 
+        <script>
+          $('.close-button').on('click', function(){
+              $(".show-modal-content").hide();
+          });
+          
+          var modal = $(' <div class="show-modal-content"> <span class="close-button">×</span> <h1>Hello</h1> </div>');
+          $(".trigger").click(function () {
+              $(".show-modal-content").show();
+            });
 
+
+            $('.menu').on('click', function(){
+              var dis = $(".mobile-menu").css("display");
+              if(dis == "none"){
+                $(".mobile-menu").css("display","block");
+              }
+              else{
+                $(".mobile-menu").css("display","none");
+              }
+          });
+
+
+  </script>
 
     
 </body>
