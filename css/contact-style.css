@@ -603,6 +603,10 @@ nav .menu{
     
 }
 
+.my-desc h1{
+    line-height: 50px;
+}
+
 
 .social-icons{
     display:flex;
